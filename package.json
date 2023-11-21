@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://TZaidel.github.io/goit-js-hw-08",
   "scripts": {
-    "start": "parcel src/*.html",
+    "start": "parcel src/*.html --port 8868",
     "build": "parcel build src/*.html --public-url /goit-js-hw-08/"
   },
   "repository": {
@@ -18,6 +18,9 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+    "@vimeo/player": "^2.20.1",
+    "express": "^4.18.2",
+    "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
     "simplelightbox": "^2.14.2"
   },
