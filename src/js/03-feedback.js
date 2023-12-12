@@ -7,13 +7,20 @@ const FEEDBACK_KEY = "feedback-form-state"
 form.addEventListener('submit', onSubmit)
 form.addEventListener('input', throttle(onInput, 500))
 
-const formData ={}
+const formData = {
+    email: "",
+    message: ""
+}
 
 getFromLocal(FEEDBACK_KEY)
 
-
 function onSubmit(event) {
     event.preventDefault()
+    // if (!formData.email.trim() || !formData.message.trim()) {
+    //     alert('Please fill all fields')
+    //     return
+    // }
+    console.log(formData)
     event.currentTarget.reset()
     localStorage.removeItem(FEEDBACK_KEY)
 }
@@ -26,21 +33,13 @@ function onInput(event) {
 //     email: form.email.value,
 //     message: form.message.value,
 //   };
-    
     const strMes = JSON.stringify(formData)
-
     localStorage.setItem(FEEDBACK_KEY, strMes)
-
-    const savedMsg = localStorage.getItem(FEEDBACK_KEY)
-    const parsedMsg = JSON.parse(savedMsg)
-    console.log(parsedMsg)
 }
 
 
 function getFromLocal(key) {
-
     const savedText = localStorage.getItem(key)
-    console.log(savedText)
     const parsedText = JSON.parse(savedText)
 
         if (savedText) {
